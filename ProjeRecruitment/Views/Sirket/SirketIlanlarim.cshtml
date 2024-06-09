@@ -1,0 +1,320 @@
+﻿@using EntityLayer.Concrete
+@model List<JobAdverts>
+
+@{
+    ViewBag.Title = "sirketIlanlarim";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Employer Search</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/assets/animatemin.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/assets/bootstrap.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="~/assets/sirketadaygoruntulemedetay.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="#" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 me-2">
+                        <img class="img-fluid" src="~/assets/images/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+                    </div>
+                    <h1 class="m-0 text-primary">Job's Done</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-item nav-link" href="@Url.Action("sirketAdayGoruntulemeDetay", "User")">Match</a>
+
+                        <a class="nav-item nav-link" href="@Url.Action("sirketIlanlarim", "User")">Şirket İlanlarım</a>
+
+
+
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" name="SIRKETAD">Şirket</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="404.html" class="dropdown-item">Profile</a>
+                                <a href="404.html" class="dropdown-item">Settings</a>
+                                <a href="404.html" class="dropdown-item">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+        <!-- Match Start -->
+        <!-- Macth End -->
+        <!-- Match Start -->
+        <!-- İlan List Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end">
+                    <div class="col-lg-6">
+                        <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.3s">
+                            <h1 class="mb-3">İlanlarım</h1>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                <!-- C kodlarından arındırdım burada forech vardı -->
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                        <div class="property-item rounded overflow-hidden">
+                                            <div class="position-relative overflow-hidden">
+                                                <img class="img-fluid" src="~/assets/images/defaultProfilCard.jpg" alt="">
+                                                <div name="" class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                                    @item.title
+                                                </div>
+                                                <div name="AD" class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="p-4 pb-0">
+                                                <h5 class="text-primary mb-3" name=""></h5>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-auto">
+                                                        <button type="button" class="btn btn-green d-block h6 mb-2"
+                                                                data-bs-toggle="modal" data-bs-target="#ilanModal1-@item.id">
+                                                            İlan
+                                                            Detay
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <p><i class="fa fa-id-card text-primary me-2" name=""></i>Pozisyon Seviyesi</p>
+                                            </div>
+                                            <div class="d-flex border-top">
+                                                <small class="flex-fill text-center border-end py-6">
+                                                    <i class="" type="number" name=""></i>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <!-- MODAL 1 START -->
+                                        <div class="modal fade" tabindex="-1" id="ilanModal1-@item.id">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm modal-lg modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" name="ILANBASLIK">İlan Başlığı</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Kapat">
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="col-16 col-sm-7 col-md-7 col-lg-8 p-0 mb-0 col">
+                                                            <div class="overflow-hidden k-shadow k-radius">
+                                                                <div class="bg-white">
+                                                                    <div class="main-container">
+                                                                        <div class="pt-3 pb-0 px-3">
+                                                                            <div class="headline-top d-flex mb-3">
+                                                                                <div class="mr-3">
+                                                                                    <div class="title mb-0">
+                                                                                        <p style="overflow: hidden;">
+                                                                                            <span style="box-shadow: transparent 0px 0px;">
+                                                                                                <span aria-label="Bilgisayar Mühendisi" name="ISTUR">
+                                                                                                    @item.title
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </p>
+                                                                                        <p name="Durum">
+                                                                                            @item.status  
+                                                                                        </p>
+
+                                                                                        
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="headline-bottom justify-content-between d-flex">
+                                                                                @* <div class="mb-md-3 mb-lg-0 align-items-center ad-subdetail mb-0 mb-sm-0 d-flex">
+                                                                                    <div class="company-location">
+                                                                                        <span name="IL">@item</span>
+                                                                                    </div>
+                                                                                    <div class="align-items-center d-none d-md-flex">
+                                                                                        <div class="dot-icon mx-2"></div>
+                                                                                        <p class="mb-0">
+                                                                                    </div> *@
+                                                                                </div>
+                                                                                <div class="mb-md-3 mb-lg-0 align-items-center ad-subdetail mb-0 mb-sm-0 d-flex">
+                                                                                   @*  <div class="company-location">
+                                                                                        <span name="ILCE">
+                                                                                            @item
+                                                                                        </span>
+                                                                                    </div> *@
+                                                                                    <div class="align-items-center d-none d-md-flex">
+                                                                                        <div class="dot-icon mx-2"></div>
+                                                                                        <p class="mb-0">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="">
+                                                                                    <div class="updated-date">
+                                                                                        <span id="updateDate" name="ADRES">
+                                                                                            @item.JobLocation
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="details-container p-3 mt-sm-0">
+                                                                           @*  <div class="details d-none d-lg-flex p-3 py-sm-4 flex-lg-row">
+                                                                                <div class="detail mb-3 mb-sm-0 flex-sm-column">
+                                                                                    <h6 class="mb-1">
+                                                                                        Çalışma Şekli
+                                                                                    </h6>
+                                                                                    <p class="mb-0" name="">
+
+                                                                                    </p>
+                                                                                </div> *@
+                                                                                @*  <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                            <h6 class="mb-1">
+                                                                            Askerlik
+                                                                            </h6>
+                                                                            <p class="mb-0" name="">
+                                                                            Yapıldı
+                                                                            </p>
+                                                                            </div> *@
+                                                                              @*   <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                                    <h6 class="mb-1">
+                                                                                        Çalışma Tercihi
+                                                                                    </h6>
+                                                                                    <p class="mb-0 d-none d-xl-inline" name="">
+                                                                                        Hibrit
+                                                                                    </p>
+                                                                                </div> *@
+                                                                                <br />                                                                   @*  <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                            <h6 class="mb-1">
+                                                                            Ehliyet
+                                                                            </h6>
+                                                                            <p class="mb-0 d-none d-xl-inline" name="">
+                                                                            Yok
+                                                                            </p>
+                                                                            </div> *@
+                                                                                <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                                    <h6 class="mb-1">
+                                                                                       Departman
+                                                                                    </h6>
+                                                                                    @item.Department
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="job-container my-3">
+                                                                <div class="job-detail-container-description fixed-height-container">
+                                                                    <div class="job-sub-detail">
+                                                                        <div class="job-detail-content">
+                                                                            <h2>Özet Bilgi</h2>
+                                                                            <div class="job-detail-qualifications" name="OZETBILGI">
+                                                                                <p>
+                                                                                    @item.description
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="aligment-container my-3">
+                                                                <header>
+                                                                    <h2></h2>
+                                                                </header>
+                                                                <section>
+                                                                 
+                                                                   
+                                                                    
+
+                                                                    <div class="aligment-container-section">
+                                                                        <label class="d-none d-sm-inline-block">
+                                                                            <h5>Bolüm</h5>
+                                                                            <span class="value-contain" name="BOLUM">@item.Position</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                       
+                                    
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </div>
+    <!-- Employee List End -->
+    <!-- Footer Start -->
+    <!--<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <p>FOOTEER</p>
+                </div>
+            </div>
+        </div>
+    </div>
+     Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/sirketadaygoruntulemedetay.js"></script>
+    <script src="~/js/ilandetay.js"></script>
+</body>
+
+</html>
+
+

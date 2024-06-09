@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Rabve Vakfı</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Rabve Öğrenci" name="description" />
+    <meta content="Rabve Vakfı" name="author" />
+
+
+    <link rel="shortcut icon" href="~/Template/assets/images/rabvelogo.jpg">
+
+    <link href="~/Template/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Template/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Template/assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Template/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Template/assets/css/anatasarim.css" rel="stylesheet" type="text/css" />
+    <link href="~/template/assets/css/toastr.min.css" rel="stylesheet" />
+    <link href="~/template/assets/css/loaderspinner.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- jQuery  -->
+    <script src="~/Template/assets/js/jquery.min.js"></script>
+    <script src="~/Template/assets/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="enlarge-menu">
+
+
+
+    <!-- Top Bar Start -->
+    @Html.Partial("_TopNav")
+    <!-- Top Bar End -->
+
+    <div class="page-wrapper">
+        @Html.Partial("_LeftNav")
+        <!-- Page Content-->
+        <div class="page-content">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/Template/assets/js/metisMenu.min.js"></script>
+    <script src="~/Template/assets/js/waves.min.js"></script>
+    <script src="~/Template/assets/js/jquery.slimscroll.min.js"></script>
+
+    <script src="~/Template/assets/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="~/Template/assets/pages/jquery.analytics_dashboard.init.js"></script>
+    <script src="~/template/assets/js/toastr.min.js"></script>
+    <script src="~/template/assets/js/bootbox.js"></script>
+    <script src="~/template/assets/js/jquery.blockui.js"></script>
+    <!-- App js -->
+    <script src="~/Template/assets/js/app.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

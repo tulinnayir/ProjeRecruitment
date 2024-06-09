@@ -1,0 +1,820 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Users>
+@{
+    ViewBag.Title = "sirketAdayGoruntulemeDetay";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Employer Search</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/assets/animatemin.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/assets/bootstrap.css" rel="stylesheet" />
+
+
+    <!-- Template Stylesheet -->
+    <link href="~/assets/sirketadaygoruntulemedetay.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="#" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 me-2">
+                        <img class="img-fluid" src="~/assets/images/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+                    </div>
+                    <h1 class="m-0 text-primary">Job's Done</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+
+                        <a class="nav-item nav-link" href="">Match</a>
+
+                        <a class="nav-item nav-link" href="">Şirket İlanlarım</a>
+
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" name="">Şirket</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="404.html" class="dropdown-item">Profile</a>
+                                <a href="404.html" class="dropdown-item">Settings</a>
+                                <a href="404.html" class="dropdown-item">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+        <!-- Score End -->
+        <!-- İlan List Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end">
+                    <div class="col-lg-6">
+                        <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.3s">
+                            <h1 class="mb-3">Adaylar</h1>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <form action  method="get">
+                            <div class="container-xyz123">
+                                <div class="filter-section-abc456">
+                                    <div class="filter-item-ghi789">
+                                        <label for="position" class="filter-label-jkl012" onclick="toggleDropdown('dropdown-position')">Pozisyon</label>
+                                        <div class="dropdown-content-pqr678" id="dropdown-position">
+                                            <input type="text" id="position-search" class="search-input-pqr678" placeholder="Pozisyon ara" onkeyup="filterOptions('position-search', 'position-list')">
+                                            <div class="checkbox-list-stu901" id="position-list">
+                                                <label><input type="checkbox" value="1" name="ISTUR[]" class="checkbox-vwx234"> Yazılımcı</label>
+                                                <label><input type="checkbox" value="2" name="ISTUR[]" class="checkbox-vwx234"> Kimyager</label>
+                                                <label><input type="checkbox" value="3" name="ISTUR[]" class="checkbox-vwx234"> İş Sağlığı ve Güvenliği Uzmanı</label>
+                                                <label><input type="checkbox" value="4" name="ISTUR[]" class="checkbox-vwx234"> Aşcı</label>
+                                                <label><input type="checkbox" value="5" name="ISTUR[]" class="checkbox-vwx234"> Borsacı</label>
+                                                <label><input type="checkbox" value="6" name="ISTUR[]" class="checkbox-vwx234"> Veri Analisti</label>
+                                                <label><input type="checkbox" value="7" name="ISTUR[]" class="checkbox-vwx234"> Elektrik Mühendisi</label>
+                                                <label><input type="checkbox" value="8" name="ISTUR[]" class="checkbox-vwx234"> Makine Mühendisi</label>
+                                                <label><input type="checkbox" value="9" name="ISTUR[]" class="checkbox-vwx234"> Doktor</label>
+                                                <label><input type="checkbox" value="10" name="ISTUR[]" class="checkbox-vwx234"> Öğretmen</label>
+                                                <label><input type="checkbox" value="11" name="ISTUR[]" class="checkbox-vwx234"> Avukat</label>
+                                                <label><input type="checkbox" value="12" name="ISTUR[]" class="checkbox-vwx234"> Hemşire</label>
+                                                <label><input type="checkbox" value="13" name="ISTUR[]" class="checkbox-vwx234"> Proje Yöneticisi</label>
+                                                <label><input type="checkbox" value="14" name="ISTUR[]" class="checkbox-vwx234"> Grafik Tasarımcı</label>
+                                                <label><input type="checkbox" value="15" name="ISTUR[]" class="checkbox-vwx234"> Çevre Mühendisi</label>
+                                                <label><input type="checkbox" value="16" name="ISTUR[]" class="checkbox-vwx234"> Eczacı</label>
+                                                <label><input type="checkbox" value="17" name="ISTUR[]" class="checkbox-vwx234"> İnşaat Mühendisi</label>
+                                                <label><input type="checkbox" value="18" name="ISTUR[]" class="checkbox-vwx234"> Yazılım Test Uzmanı</label>
+                                                <label><input type="checkbox" value="19" name="ISTUR[]" class="checkbox-vwx234"> Endüstri Mühendisi</label>
+                                                <label><input type="checkbox" value="20" name="ISTUR[]" class="checkbox-vwx234"> Muhasebeci</label>
+                                                <label><input type="checkbox" value="21" name="ISTUR[]" class="checkbox-vwx234"> Psikolog</label>
+                                                <label><input type="checkbox" value="22" name="ISTUR[]" class="checkbox-vwx234"> İnsan Kaynakları Uzmanı</label>
+                                                <label><input type="checkbox" value="23" name="ISTUR[]" class="checkbox-vwx234"> Pazarlama Uzmanı</label>
+                                                <label><input type="checkbox" value="24" name="ISTUR[]" class="checkbox-vwx234"> Satış Temsilcisi</label>
+                                                <label><input type="checkbox" value="25" name="ISTUR[]" class="checkbox-vwx234"> Lojistik Uzmanı</label>
+                                                <label><input type="checkbox" value="26" name="ISTUR[]" class="checkbox-vwx234"> Mimar</label>
+                                                <label><input type="checkbox" value="27" name="ISTUR[]" class="checkbox-vwx234"> Diş Hekimi</label>
+                                                <label><input type="checkbox" value="28" name="ISTUR[]" class="checkbox-vwx234"> Fizyoterapist</label>
+                                                <label><input type="checkbox" value="29" name="ISTUR[]" class="checkbox-vwx234"> Sosyolog</label>
+                                                <label><input type="checkbox" value="30" name="ISTUR[]" class="checkbox-vwx234"> Bilgisayar Mühendisi</label>
+                                                <label><input type="checkbox" value="31" name="ISTUR[]" class="checkbox-vwx234"> Ağ Yöneticisi</label>
+                                                <label><input type="checkbox" value="32" name="ISTUR[]" class="checkbox-vwx234"> Sistem Analisti</label>
+                                                <label><input type="checkbox" value="33" name="ISTUR[]" class="checkbox-vwx234"> Mobil Uygulama Geliştirici</label>
+                                                <label><input type="checkbox" value="34" name="ISTUR[]" class="checkbox-vwx234"> Web Geliştirici</label>
+                                                <label><input type="checkbox" value="35" name="ISTUR[]" class="checkbox-vwx234"> Veritabanı Yöneticisi</label>
+                                                <label><input type="checkbox" value="36" name="ISTUR[]" class="checkbox-vwx234"> Bilgi Güvenliği Uzmanı</label>
+                                                <label><input type="checkbox" value="37" name="ISTUR[]" class="checkbox-vwx234"> Yapay Zeka Mühendisi</label>
+                                                <label><input type="checkbox" value="38" name="ISTUR[]" class="checkbox-vwx234"> Veri Bilimcisi</label>
+                                                <label><input type="checkbox" value="39" name="ISTUR[]" class="checkbox-vwx234"> Blockchain Uzmanı</label>
+                                                <label><input type="checkbox" value="40" name="ISTUR[]" class="checkbox-vwx234"> Oyun Geliştirici</label>
+                                                <label><input type="checkbox" value="41" name="ISTUR[]" class="checkbox-vwx234"> İş Zekası Uzmanı</label>
+                                                <label><input type="checkbox" value="42" name="ISTUR[]" class="checkbox-vwx234"> Makine Öğrenimi Mühendisi</label>
+                                                <label><input type="checkbox" value="43" name="ISTUR[]" class="checkbox-vwx234"> Bulut Bilişim Uzmanı</label>
+                                                <label><input type="checkbox" value="44" name="ISTUR[]" class="checkbox-vwx234"> Robotik Mühendisi</label>
+                                                <label><input type="checkbox" value="45" name="ISTUR[]" class="checkbox-vwx234"> Elektronik Mühendisi</label>
+                                                <label><input type="checkbox" value="46" name="ISTUR[]" class="checkbox-vwx234"> Kontrol Mühendisi</label>
+                                                <label><input type="checkbox" value="47" name="ISTUR[]" class="checkbox-vwx234"> Yapısal Mühendis</label>
+                                                <label><input type="checkbox" value="48" name="ISTUR[]" class="checkbox-vwx234"> Teknik Yazar</label>
+                                                <label><input type="checkbox" value="49" name="ISTUR[]" class="checkbox-vwx234"> Çevirmen</label>
+                                                <label><input type="checkbox" value="50" name="ISTUR[]" class="checkbox-vwx234"> Sosyal Medya Uzmanı</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item-ghi789">
+                                        <label for="skill" class="filter-label-jkl012" onclick="toggleDropdown('dropdown-skill')">Yetkinlik</label>
+                                        <div class="dropdown-content-pqr678" id="dropdown-skill">
+                                            <input type="text" id="skill-search" class="search-input-pqr678" placeholder="Yetkinlik ara" onkeyup="filterOptions('skill-search', 'skill-list')">
+                                            <div class="checkbox-list-stu901" id="skill-list">
+                                                <label><input type="checkbox" value="1" name="YETKINLIK[]" data-job="1" class="checkbox-vwx234"> Programlama Dilleri</label>
+                                                <label><input type="checkbox" value="2" name="YETKINLIK[]" data-job="1" class="checkbox-vwx234"> Yazılım Mimarisi</label>
+                                                <label><input type="checkbox" value="3" name="YETKINLIK[]" data-job="2" class="checkbox-vwx234"> Laboratuvar Teknikleri</label>
+                                                <label><input type="checkbox" value="4" name="YETKINLIK[]" data-job="2" class="checkbox-vwx234"> Kimyasal Analiz</label>
+                                                <label><input type="checkbox" value="5" name="YETKINLIK[]" data-job="3" class="checkbox-vwx234"> Risk Değerlendirme</label>
+                                                <label><input type="checkbox" value="6" name="YETKINLIK[]" data-job="3" class="checkbox-vwx234"> Acil Durum Yönetimi</label>
+                                                <label><input type="checkbox" value="7" name="YETKINLIK[]" data-job="4" class="checkbox-vwx234"> Yemek Hazırlama Teknikleri</label>
+                                                <label><input type="checkbox" value="8" name="YETKINLIK[]" data-job="4" class="checkbox-vwx234"> Mutfak Yönetimi</label>
+                                                <label><input type="checkbox" value="9" name="YETKINLIK[]" data-job="5" class="checkbox-vwx234"> Piyasa Analizi</label>
+                                                <label><input type="checkbox" value="10" name="YETKINLIK[]" data-job="5" class="checkbox-vwx234"> Yatırım Stratejileri</label>
+                                                <label><input type="checkbox" value="11" name="YETKINLIK[]" data-job="6" class="checkbox-vwx234"> Veri Görselleştirme</label>
+                                                <label><input type="checkbox" value="12" name="YETKINLIK[]" data-job="6" class="checkbox-vwx234"> İstatistiksel Analiz</label>
+                                                <label><input type="checkbox" value="13" name="YETKINLIK[]" data-job="7" class="checkbox-vwx234"> Elektrik Devre Tasarımı</label>
+                                                <label><input type="checkbox" value="14" name="YETKINLIK[]" data-job="7" class="checkbox-vwx234"> Güç Sistemleri</label>
+                                                <label><input type="checkbox" value="15" name="YETKINLIK[]" data-job="8" class="checkbox-vwx234"> Mekanik Tasarım</label>
+                                                <label><input type="checkbox" value="16" name="YETKINLIK[]" data-job="8" class="checkbox-vwx234"> Termodinamik</label>
+                                                <label><input type="checkbox" value="17" name="YETKINLIK[]" data-job="9" class="checkbox-vwx234"> Hasta Bakımı</label>
+                                                <label><input type="checkbox" value="18" name="YETKINLIK[]" data-job="9" class="checkbox-vwx234"> Cerrahi Teknikler</label>
+                                                <label><input type="checkbox" value="19" name="YETKINLIK[]" data-job="10" class="checkbox-vwx234"> Eğitim Metodolojileri</label>
+                                                <label><input type="checkbox" value="20" name="YETKINLIK[]" data-job="10" class="checkbox-vwx234"> Sınıf Yönetimi</label>
+                                                <label><input type="checkbox" value="21" name="YETKINLIK[]" data-job="11" class="checkbox-vwx234"> Hukuk Araştırması</label>
+                                                <label><input type="checkbox" value="22" name="YETKINLIK[]" data-job="12" class="checkbox-vwx234"> Klinik Prosedürler</label>
+                                                <label><input type="checkbox" value="23" name="YETKINLIK[]" data-job="13" class="checkbox-vwx234"> Proje Planlama</label>
+                                                <label><input type="checkbox" value="24" name="YETKINLIK[]" data-job="14" class="checkbox-vwx234"> Tasarım Yazılımları</label>
+                                                <label><input type="checkbox" value="25" name="YETKINLIK[]" data-job="15" class="checkbox-vwx234"> Çevresel Etki Değerlendirmesi</label>
+                                                <label><input type="checkbox" value="26" name="YETKINLIK[]" data-job="16" class="checkbox-vwx234"> İlaç Danışmanlığı</label>
+                                                <label><input type="checkbox" value="27" name="YETKINLIK[]" data-job="17" class="checkbox-vwx234"> Yapısal Analiz</label>
+                                                <label><input type="checkbox" value="28" name="YETKINLIK[]" data-job="18" class="checkbox-vwx234"> Test Otomasyonu</label>
+                                                <label><input type="checkbox" value="29" name="YETKINLIK[]" data-job="19" class="checkbox-vwx234"> Süreç İyileştirme</label>
+                                                <label><input type="checkbox" value="30" name="YETKINLIK[]" data-job="20" class="checkbox-vwx234"> Finansal Raporlama</label>
+                                                <label><input type="checkbox" value="31" name="YETKINLIK[]" data-job="21" class="checkbox-vwx234"> Terapi Teknikleri</label>
+                                                <label><input type="checkbox" value="32" name="YETKINLIK[]" data-job="22" class="checkbox-vwx234"> İşe Alım</label>
+                                                <label><input type="checkbox" value="33" name="YETKINLIK[]" data-job="23" class="checkbox-vwx234"> Dijital Pazarlama</label>
+                                                <label><input type="checkbox" value="34" name="YETKINLIK[]" data-job="24" class="checkbox-vwx234"> Satış Teknikleri</label>
+                                                <label><input type="checkbox" value="35" name="YETKINLIK[]" data-job="25" class="checkbox-vwx234"> Tedarik Zinciri Yönetimi</label>
+                                                <label><input type="checkbox" value="36" name="YETKINLIK[]" data-job="26" class="checkbox-vwx234"> Mimari Tasarım</label>
+                                                <label><input type="checkbox" value="37" name="YETKINLIK[]" data-job="27" class="checkbox-vwx234"> Diş Tedavisi</label>
+                                                <label><input type="checkbox" value="38" name="YETKINLIK[]" data-job="28" class="checkbox-vwx234"> Rehabilitasyon Teknikleri</label>
+                                                <label><input type="checkbox" value="39" name="YETKINLIK[]" data-job="29" class="checkbox-vwx234"> Sosyal Araştırma</label>
+                                                <label><input type="checkbox" value="40" name="YETKINLIK[]" data-job="30" class="checkbox-vwx234"> Algoritma Geliştirme</label>
+                                                <label><input type="checkbox" value="41" name="YETKINLIK[]" data-job="31" class="checkbox-vwx234"> Ağ Güvenliği</label>
+                                                <label><input type="checkbox" value="42" name="YETKINLIK[]" data-job="32" class="checkbox-vwx234"> İş Analizi</label>
+                                                <label><input type="checkbox" value="43" name="YETKINLIK[]" data-job="33" class="checkbox-vwx234"> Uygulama Geliştirme</label>
+                                                <label><input type="checkbox" value="44" name="YETKINLIK[]" data-job="34" class="checkbox-vwx234"> Front-end Geliştirme</label>
+                                                <label><input type="checkbox" value="45" name="YETKINLIK[]" data-job="35" class="checkbox-vwx234"> Veritabanı Tasarımı</label>
+                                                <label><input type="checkbox" value="46" name="YETKINLIK[]" data-job="36" class="checkbox-vwx234"> Güvenlik Protokolleri</label>
+                                                <label><input type="checkbox" value="47" name="YETKINLIK[]" data-job="37" class="checkbox-vwx234"> Makine Öğrenimi</label>
+                                                <label><input type="checkbox" value="48" name="YETKINLIK[]" data-job="38" class="checkbox-vwx234"> Veri Madenciliği</label>
+                                                <label><input type="checkbox" value="49" name="YETKINLIK[]" data-job="39" class="checkbox-vwx234"> Blockchain Geliştirme</label>
+                                                <label><input type="checkbox" value="50" name="YETKINLIK[]" data-job="40" class="checkbox-vwx234"> Oyun Programlama</label>
+                                                <label><input type="checkbox" value="51" name="YETKINLIK[]" data-job="41" class="checkbox-vwx234"> BI Araçları</label>
+                                                <label><input type="checkbox" value="52" name="YETKINLIK[]" data-job="42" class="checkbox-vwx234"> Model Değerlendirme</label>
+                                                <label><input type="checkbox" value="53" name="YETKINLIK[]" data-job="43" class="checkbox-vwx234"> Bulut Platformları</label>
+                                                <label><input type="checkbox" value="54" name="YETKINLIK[]" data-job="44" class="checkbox-vwx234"> Robot Kontrol Sistemleri</label>
+                                                <label><input type="checkbox" value="55" name="YETKINLIK[]" data-job="45" class="checkbox-vwx234"> Devre Tasarımı</label>
+                                                <label><input type="checkbox" value="56" name="YETKINLIK[]" data-job="46" class="checkbox-vwx234"> Otomasyon Sistemleri</label>
+                                                <label><input type="checkbox" value="57" name="YETKINLIK[]" data-job="47" class="checkbox-vwx234"> Yapısal Analiz</label>
+                                                <label><input type="checkbox" value="58" name="YETKINLIK[]" data-job="48" class="checkbox-vwx234"> Teknik Belgeler</label>
+                                                <label><input type="checkbox" value="59" name="YETKINLIK[]" data-job="49" class="checkbox-vwx234"> Dil Çevirisi</label>
+                                                <label><input type="checkbox" value="60" name="YETKINLIK[]" data-job="50" class="checkbox-vwx234"> Sosyal Medya Stratejisi</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item-ghi789">
+                                        <label for="category" class="filter-label-jkl012" onclick="toggleDropdown('dropdown-category')">Kategori</label>
+                                        <div class="dropdown-content-pqr678" id="dropdown-category">
+                                            <input type="text" id="category-search" class="search-input-pqr678" placeholder="Kategori ara" onkeyup="filterOptions('category-search', 'category-list')">
+                                            <div class="checkbox-list-stu901" id="category-list">
+                                                <label><input type="checkbox" value="1" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="1" class="checkbox-vwx234"> Java</label>
+                                                <label><input type="checkbox" value="2" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="1" class="checkbox-vwx234"> Python</label>
+                                                <label><input type="checkbox" value="3" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="1" class="checkbox-vwx234"> C++</label>
+                                                <label><input type="checkbox" value="4" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="2" class="checkbox-vwx234"> MVC</label>
+                                                <label><input type="checkbox" value="5" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="2" class="checkbox-vwx234"> Microservices</label>
+                                                <label><input type="checkbox" value="6" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="3" class="checkbox-vwx234"> Titrasyon</label>
+                                                <label><input type="checkbox" value="7" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="3" class="checkbox-vwx234"> Kromatografi</label>
+                                                <label><input type="checkbox" value="8" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="4" class="checkbox-vwx234"> Spektrofotometri</label>
+                                                <label><input type="checkbox" value="9" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="4" class="checkbox-vwx234"> Uzman Yardımcısı</label>
+                                                <label><input type="checkbox" value="10" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="5" class="checkbox-vwx234"> HPLC</label>
+                                                <label><input type="checkbox" value="11" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="5" class="checkbox-vwx234"> Tehlike Analizi</label>
+                                                <label><input type="checkbox" value="12" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="6" class="checkbox-vwx234"> Güvenlik Denetimleri</label>
+                                                <label><input type="checkbox" value="13" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="6" class="checkbox-vwx234"> Yangın Güvenliği</label>
+                                                <label><input type="checkbox" value="14" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="6" class="checkbox-vwx234"> İlk Yardım Eğitimi</label>
+                                                <label><input type="checkbox" value="15" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="7" class="checkbox-vwx234"> Sous-vide</label>
+                                                <label><input type="checkbox" value="16" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="7" class="checkbox-vwx234"> Poaching</label>
+                                                <label><input type="checkbox" value="17" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="8" class="checkbox-vwx234"> Envanter Kontrolü</label>
+                                                <label><input type="checkbox" value="18" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="8" class="checkbox-vwx234"> Menü Planlama</label>
+                                                <label><input type="checkbox" value="19" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="9" class="checkbox-vwx234"> Teknik Analiz</label>
+                                                <label><input type="checkbox" value="20" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="9" class="checkbox-vwx234"> Temel Analiz</label>
+                                                <label><input type="checkbox" value="21" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="10" class="checkbox-vwx234"> Portföy Yönetimi</label>
+                                                <label><input type="checkbox" value="22" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="10" class="checkbox-vwx234"> Risk Yönetimi</label>
+                                                <label><input type="checkbox" value="23" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="11" class="checkbox-vwx234"> Tableau</label>
+                                                <label><input type="checkbox" value="24" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="11" class="checkbox-vwx234"> Power BI</label>
+                                                <label><input type="checkbox" value="25" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="12" class="checkbox-vwx234"> R</label>
+                                                <label><input type="checkbox" value="26" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="12" class="checkbox-vwx234"> SPSS</label>
+                                                <label><input type="checkbox" value="27" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="13" class="checkbox-vwx234"> PCB Tasarımı</label>
+                                                <label><input type="checkbox" value="28" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="13" class="checkbox-vwx234"> CAD Yazılımları</label>
+                                                <label><input type="checkbox" value="29" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="14" class="checkbox-vwx234"> Yenilenebilir Enerji</label>
+                                                <label><input type="checkbox" value="30" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="14" class="checkbox-vwx234"> Şebeke Analizi</label>
+                                                <label><input type="checkbox" value="31" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="15" class="checkbox-vwx234"> CAD/CAM</label>
+                                                <label><input type="checkbox" value="32" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="15" class="checkbox-vwx234"> SolidWorks</label>
+                                                <label><input type="checkbox" value="33" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="16" class="checkbox-vwx234"> Isı Transferi</label>
+                                                <label><input type="checkbox" value="34" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="16" class="checkbox-vwx234"> Akışkanlar Mekaniği</label>
+                                                <label><input type="checkbox" value="35" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="17" class="checkbox-vwx234"> Teşhis</label>
+                                                <label><input type="checkbox" value="36" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="17" class="checkbox-vwx234"> Tedavi Planlama</label>
+                                                <label><input type="checkbox" value="37" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="18" class="checkbox-vwx234"> Laparoskopik Cerrahi</label>
+                                                <label><input type="checkbox" value="38" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="18" class="checkbox-vwx234"> Robotik Cerrahi</label>
+                                                <label><input type="checkbox" value="39" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="19" class="checkbox-vwx234"> E-öğrenme</label>
+                                                <label><input type="checkbox" value="40" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="19" class="checkbox-vwx234"> Proje Tabanlı Öğrenme</label>
+                                                <label><input type="checkbox" value="41" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="20" class="checkbox-vwx234"> Davranış Yönetimi</label>
+                                                <label><input type="checkbox" value="42" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="20" class="checkbox-vwx234"> Etkileşimli Öğretim Teknikleri</label>
+                                                <label><input type="checkbox" value="43" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="21" class="checkbox-vwx234"> İçtihat Analizi</label>
+                                                <label><input type="checkbox" value="44" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="21" class="checkbox-vwx234"> Hukuki Yazım</label>
+                                                <label><input type="checkbox" value="45" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="22" class="checkbox-vwx234"> Vital Bulguların İzlenmesi</label>
+                                                <label><input type="checkbox" value="46" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="22" class="checkbox-vwx234"> İlaç Yönetimi</label>
+                                                <label><input type="checkbox" value="47" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="23" class="checkbox-vwx234"> Gantt Şeması</label>
+                                                <label><input type="checkbox" value="48" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="23" class="checkbox-vwx234"> Agile Methodolojileri</label>
+                                                <label><input type="checkbox" value="49" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="24" class="checkbox-vwx234"> Adobe Photoshop</label>
+                                                <label><input type="checkbox" value="50" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="24" class="checkbox-vwx234"> Illustrator</label>
+                                                <label><input type="checkbox" value="51" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="25" class="checkbox-vwx234"> Hava Kalitesi Analizi</label>
+                                                <label><input type="checkbox" value="52" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="25" class="checkbox-vwx234"> Su Arıtma Teknolojileri</label>
+                                                <label><input type="checkbox" value="53" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="26" class="checkbox-vwx234"> Reçete Yönetimi</label>
+                                                <label><input type="checkbox" value="54" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="26" class="checkbox-vwx234"> İlaç Etkileşimleri</label>
+                                                <label><input type="checkbox" value="55" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="27" class="checkbox-vwx234"> Betonarme Tasarımı</label>
+                                                <label><input type="checkbox" value="56" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="27" class="checkbox-vwx234"> Çelik Yapılar</label>
+                                                <label><input type="checkbox" value="57" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="28" class="checkbox-vwx234"> Selenium</label>
+                                                <label><input type="checkbox" value="58" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="28" class="checkbox-vwx234"> JUnit</label>
+                                                <label><input type="checkbox" value="59" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="29" class="checkbox-vwx234"> Lean Manufacturing</label>
+                                                <label><input type="checkbox" value="60" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="29" class="checkbox-vwx234"> Six Sigma</label>
+                                                <label><input type="checkbox" value="61" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="30" class="checkbox-vwx234"> Gelir Tablosu</label>
+                                                <label><input type="checkbox" value="62" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="30" class="checkbox-vwx234"> Bilanço Analizi</label>
+                                                <label><input type="checkbox" value="63" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="31" class="checkbox-vwx234"> Bilişsel Davranışçı Terapi</label>
+                                                <label><input type="checkbox" value="64" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="31" class="checkbox-vwx234"> Psikodinamik Terapi</label>
+                                                <label><input type="checkbox" value="65" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="32" class="checkbox-vwx234"> Mülakat Teknikleri</label>
+                                                <label><input type="checkbox" value="66" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="32" class="checkbox-vwx234"> Aday Değerlendirme</label>
+                                                <label><input type="checkbox" value="67" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="33" class="checkbox-vwx234"> SEO</label>
+                                                <label><input type="checkbox" value="68" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="33" class="checkbox-vwx234"> SEM</label>
+                                                <label><input type="checkbox" value="69" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="34" class="checkbox-vwx234"> İkna Stratejileri</label>
+                                                <label><input type="checkbox" value="70" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="34" class="checkbox-vwx234"> Müşteri İlişkileri Yönetimi</label>
+                                                <label><input type="checkbox" value="71" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="35" class="checkbox-vwx234"> Envanter Yönetimi</label>
+                                                <label><input type="checkbox" value="72" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="35" class="checkbox-vwx234"> Lojistik Planlama</label>
+                                                <label><input type="checkbox" value="73" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="36" class="checkbox-vwx234"> Konsept Geliştirme</label>
+                                                <label><input type="checkbox" value="74" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="36" class="checkbox-vwx234"> Proje Yönetimi</label>
+                                                <label><input type="checkbox" value="75" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="36" class="checkbox-vwx234"> Risk Yönetimi</label>
+                                                <label><input type="checkbox" value="76" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="37" class="checkbox-vwx234"> Dolgu</label>
+                                                <label><input type="checkbox" value="77" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="37" class="checkbox-vwx234"> Kanal Tedavisi</label>
+                                                <label><input type="checkbox" value="78" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="38" class="checkbox-vwx234"> Egzersiz Terapisi</label>
+                                                <label><input type="checkbox" value="79" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="38" class="checkbox-vwx234"> Manuel Terapi</label>
+                                                <label><input type="checkbox" value="80" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="39" class="checkbox-vwx234"> Anket Tasarımı</label>
+                                                <label><input type="checkbox" value="81" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="39" class="checkbox-vwx234"> Niteliksel Araştırma</label>
+                                                <label><input type="checkbox" value="82" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="40" class="checkbox-vwx234"> Veri Yapıları</label>
+                                                <label><input type="checkbox" value="83" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="40" class="checkbox-vwx234"> Algoritma Analizi</label>
+                                                <label><input type="checkbox" value="84" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="41" class="checkbox-vwx234"> Firewall Yönetimi</label>
+                                                <label><input type="checkbox" value="85" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="41" class="checkbox-vwx234"> VPN Konfigürasyonu</label>
+                                                <label><input type="checkbox" value="86" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="42" class="checkbox-vwx234"> Süreç Modelleme</label>
+                                                <label><input type="checkbox" value="87" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="42" class="checkbox-vwx234"> Akışkanlar Mekaniği</label>
+                                                <label><input type="checkbox" value="88" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="43" class="checkbox-vwx234"> Android</label>
+                                                <label><input type="checkbox" value="89" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="43" class="checkbox-vwx234"> iOS</label>
+                                                <label><input type="checkbox" value="90" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="44" class="checkbox-vwx234"> HTML</label>
+                                                <label><input type="checkbox" value="91" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="44" class="checkbox-vwx234"> CSS</label>
+                                                <label><input type="checkbox" value="92" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="44" class="checkbox-vwx234"> JavaScript</label>
+                                                <label><input type="checkbox" value="93" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="45" class="checkbox-vwx234"> Normalizasyon</label>
+                                                <label><input type="checkbox" value="94" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="45" class="checkbox-vwx234"> ER Diyagramları</label>
+                                                <label><input type="checkbox" value="95" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="46" class="checkbox-vwx234"> SSL/TLS</label>
+                                                <label><input type="checkbox" value="96" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="46" class="checkbox-vwx234"> IPSec</label>
+                                                <label><input type="checkbox" value="97" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="47" class="checkbox-vwx234"> Denetimli Öğrenme</label>
+                                                <label><input type="checkbox" value="98" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="47" class="checkbox-vwx234"> Derin Öğrenme</label>
+                                                <label><input type="checkbox" value="99" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="48" class="checkbox-vwx234"> K-Means</label>
+                                                <label><input type="checkbox" value="100" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="48" class="checkbox-vwx234"> Apriori Algoritması</label>
+                                                <label><input type="checkbox" value="101" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="49" class="checkbox-vwx234"> Smart Contracts</label>
+                                                <label><input type="checkbox" value="102" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="49" class="checkbox-vwx234"> Solidity</label>
+                                                <label><input type="checkbox" value="103" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="50" class="checkbox-vwx234"> Unity</label>
+                                                <label><input type="checkbox" value="104" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="50" class="checkbox-vwx234"> Unreal Engine</label>
+                                                <label><input type="checkbox" value="105" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="51" class="checkbox-vwx234"> Tableau</label>
+                                                <label><input type="checkbox" value="106" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="51" class="checkbox-vwx234"> Power BI</label>
+                                                <label><input type="checkbox" value="107" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="52" class="checkbox-vwx234"> KNN</label>
+                                                <label><input type="checkbox" value="108" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="52" class="checkbox-vwx234"> SVM</label>
+                                                <label><input type="checkbox" value="109" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="53" class="checkbox-vwx234"> AWS</label>
+                                                <label><input type="checkbox" value="110" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="53" class="checkbox-vwx234"> AZURE</label>
+                                                <label><input type="checkbox" value="111" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="54" class="checkbox-vwx234"> PID Kontrol</label>
+                                                <label><input type="checkbox" value="112" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="54" class="checkbox-vwx234"> ROS</label>
+                                                <label><input type="checkbox" value="113" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="55" class="checkbox-vwx234"> Analog ve Dijital Devreler</label>
+                                                <label><input type="checkbox" value="114" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="55" class="checkbox-vwx234"> FPGA</label>
+                                                <label><input type="checkbox" value="115" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="56" class="checkbox-vwx234"> PLC Programlama</label>
+                                                <label><input type="checkbox" value="116" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="56" class="checkbox-vwx234"> SCADA</label>
+                                                <label><input type="checkbox" value="117" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="57" class="checkbox-vwx234"> Finite Element Analysis</label>
+                                                <label><input type="checkbox" value="118" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="57" class="checkbox-vwx234"> Dinamik Yük Analizi</label>
+                                                <label><input type="checkbox" value="119" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="58" class="checkbox-vwx234"> Kullanım Kılavuzları</label>
+                                                <label><input type="checkbox" value="120" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="58" class="checkbox-vwx234"> Teknik Şartnameler</label>
+                                                <label><input type="checkbox" value="121" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="59" class="checkbox-vwx234"> Simultane Çeviri</label>
+                                                <label><input type="checkbox" value="122" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="59" class="checkbox-vwx234"> Yazılı Çeviri</label>
+                                                <label><input type="checkbox" value="123" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="60" class="checkbox-vwx234"> İçerik Planlama</label>
+                                                <label><input type="checkbox" value="124" name="ALTKATEGOR[]" onchange="toggleInputGroup(this)" data-cat="60" class="checkbox-vwx234"> Kampanya Yönetimi</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="input-groups-container"></div>
+                                    <button type="submit" class="apply-button-def567">Match</button>
+                                </div>
+                            </div>
+                       </form>
+                    </div>
+                    <div class="col-8">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane fade show p-0 active">
+                                <div class="row g-4">
+                                    <!-- C kodlarından arındırdım burada forech vardı -->
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                            <div class="property-item rounded overflow-hidden">
+                                                <div class="position-relative overflow-hidden">
+                                                    <img class="img-fluid" src="~/assets/images/defaultProfilCard.jpg" alt="">
+                                                    <div name="" class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                                        @item.job_name
+                                                    </div>
+                                                    <div name="AD" class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                                        @item.name @item.surname
+                                                    </div>
+                                                </div>
+                                                <div class="p-4 pb-0">
+                                                    <h5 class="text-primary mb-3" name=""></h5>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-green d-block h6 mb-2"
+                                                                    data-bs-toggle="modal" data-bs-target="#ilanModal1-@item.id">
+                                                                İlan
+                                                                Detay
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <p><i class="fa fa-id-card text-primary me-2" name=""></i>Pozisyon Seviyesi</p>
+                                                </div>
+                                                <div class="d-flex border-top">
+                                                    <small class="flex-fill text-center border-end py-6">
+                                                        <i class="" type="number" name=""></i>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                            <!-- MODAL 1 START -->
+                                            <div class="modal fade" tabindex="-1" id="ilanModal1-@item.id">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm modal-lg modal-xl">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" name="ILANBASLIK">İlan Başlığı</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Kapat">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="col-16 col-sm-7 col-md-7 col-lg-8 p-0 mb-0 col">
+                                                                <div class="overflow-hidden k-shadow k-radius">
+                                                                    <div class="bg-white">
+                                                                        <div class="main-container">
+                                                                            <div class="pt-3 pb-0 px-3">
+                                                                                <div class="headline-top d-flex mb-3">
+                                                                                    <div class="mr-3">
+                                                                                        <div class="title mb-0">
+                                                                                            <p style="overflow: hidden;">
+                                                                                                <span style="box-shadow: transparent 0px 0px;">
+                                                                                                    <span aria-label="Bilgisayar Mühendisi" name="ISTUR">
+                                                                                                        @item.job_name
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </p>
+                                                                                            <p name="AD">
+                                                                                                @item.name  @item.surname
+                                                                                            </p>
+
+                                                                                            <p name="NUMARA">
+                                                                                                @item.phone
+                                                                                            </p>
+                                                                                            <p name="CİNSİYET">
+                                                                                                @item.gender
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="headline-bottom justify-content-between d-flex">
+                                                                                    <div class="mb-md-3 mb-lg-0 align-items-center ad-subdetail mb-0 mb-sm-0 d-flex">
+                                                                                        <div class="company-location">
+                                                                                            <span name="IL">@item.Adresses.city_id</span>
+                                                                                        </div>
+                                                                                        <div class="align-items-center d-none d-md-flex">
+                                                                                            <div class="dot-icon mx-2"></div>
+                                                                                            <p class="mb-0">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="mb-md-3 mb-lg-0 align-items-center ad-subdetail mb-0 mb-sm-0 d-flex">
+                                                                                        <div class="company-location">
+                                                                                            <span name="ILCE">
+                                                                                                @item.Adresses.distirct_id
+                                                                                            </span>
+                                                                                        </div>
+                                                                                        <div class="align-items-center d-none d-md-flex">
+                                                                                            <div class="dot-icon mx-2"></div>
+                                                                                            <p class="mb-0">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="">
+                                                                                        <div class="updated-date">
+                                                                                            <span id="updateDate" name="ADRES">
+                                                                                                @item.Adresses.adresses
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="details-container p-3 mt-sm-0">
+                                                                                <div class="details d-none d-lg-flex p-3 py-sm-4 flex-lg-row">
+                                                                                    <div class="detail mb-3 mb-sm-0 flex-sm-column">
+                                                                                        <h6 class="mb-1">
+                                                                                            Çalışma Şekli
+                                                                                        </h6>
+                                                                                        <p class="mb-0" name="">
+
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    @*  <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                                <h6 class="mb-1">
+                                                                                Askerlik
+                                                                                </h6>
+                                                                                <p class="mb-0" name="">
+                                                                                Yapıldı
+                                                                                </p>
+                                                                                </div> *@
+                                                                                    <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                                        <h6 class="mb-1">
+                                                                                            Çalışma Tercihi
+                                                                                        </h6>
+                                                                                        <p class="mb-0 d-none d-xl-inline" name="">
+                                                                                            Hibrit
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <br />                                                                   @*  <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                                <h6 class="mb-1">
+                                                                                Ehliyet
+                                                                                </h6>
+                                                                                <p class="mb-0 d-none d-xl-inline" name="">
+                                                                                Yok
+                                                                                </p>
+                                                                                </div> *@
+                                                                                    <div class="detail mb-2 mb-sm-0 flex-sm-column">
+                                                                                        <h6 class="mb-1">
+                                                                                            E-mail
+                                                                                        </h6>
+                                                                                        @item.mail
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="job-container my-3">
+                                                                    <div class="job-detail-container-description fixed-height-container">
+                                                                        <div class="job-sub-detail">
+                                                                            <div class="job-detail-content">
+                                                                                <h2>Özet Bilgi</h2>
+                                                                                <div class="job-detail-qualifications" name="OZETBILGI">
+                                                                                    <p>
+                                                                                        @item.explanation
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="aligment-container my-3">
+                                                                    <header>
+                                                                        <h2>Eğitim</h2>
+                                                                    </header>
+                                                                    <section>
+                                                                        <div class="aligment-container-section">
+                                                                            <label class="d-none d-sm-inline-block">
+                                                                                <h5>Eğitim Durumu</h5>
+                                                                                <span class="value-contain" name="EGITIMDURUMU">
+                                                                                    @item.major
+                                                                                </span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="aligment-container-section">
+                                                                            <label class="d-none d-sm-inline-block">
+                                                                                <h5>Diploma Notu</h5>
+                                                                                <span class="value-contain" name="DIPLOMANOT">
+                                                                                    @item.note
+                                                                                </span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="aligment-container-section">
+                                                                            <label class="d-none d-sm-inline-block">
+                                                                                <h5>Üniversite</h5>
+                                                                                <span class="value-contain" name="UNIVERSITE">@item.school_name</span>
+                                                                            </label>
+                                                                        </div>
+
+                                                                        <div class="aligment-container-section">
+                                                                            <label class="d-none d-sm-inline-block">
+                                                                                <h5>Bolüm</h5>
+                                                                                <span class="value-contain" name="BOLUM">@item.job_name</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger"
+                                                                    data-bs-dismiss="modal">
+                                                                İptal
+                                                            </button>
+                                                            <button type="button" class="btn btn-success">Like</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Employee List End -->
+    <!-- Footer Start -->
+    <!--<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <p>FOOTEER</p>
+                </div>
+            </div>
+        </div>
+    </div>
+     Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="~/js/wow.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/sirketadaygoruntulemedetay.js"></script>
+    <script>
+   
+
+
+
+
+
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "flex";
+            } else {
+                dropdown.style.display = "none";
+            }
+        }
+
+        // Diğer fonksiyonlarınız burada
+        function openDropdownsBasedOnChecked() {
+            const positionDropdown = document.getElementById('dropdown-position');
+            const skillDropdown = document.getElementById('dropdown-skill');
+            const categoryDropdown = document.getElementById('dropdown-category');
+
+            const positionChecked = document.querySelectorAll('#position-list input:checked').length > 0;
+            const skillChecked = document.querySelectorAll('#skill-list input:checked').length > 0;
+            const categoryChecked = document.querySelectorAll('#category-list input:checked').length > 0;
+
+            positionDropdown.style.display = positionChecked ? 'flex' : 'none';
+            skillDropdown.style.display = skillChecked ? 'flex' : 'none';
+            categoryDropdown.style.display = categoryChecked ? 'flex' : 'none';
+        }
+
+        function filterOptions(inputId, listId) {
+            const input = document.getElementById(inputId);
+            const filter = input.value.toLowerCase();
+            const list = document.getElementById(listId);
+            const labels = list.getElementsByTagName('label');
+
+            for (let i = 0; i < labels.length; i++) {
+                const label = labels[i];
+                const text = label.textContent || label.innerText;
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    label.style.display = '';
+                } else {
+                    label.style.display = 'none';
+                }
+            }
+        }
+
+        function toggleInputGroup(checkbox) {
+            const container = document.getElementById('input-groups-container');
+            const value = checkbox.value;
+            if (checkbox.checked) {
+                if (!document.getElementById(`input-group-${value}`)) {
+                    const inputGroup = document.createElement('div');
+                    inputGroup.className = 'input-group-container';
+                    inputGroup.id = `input-group-${value}`;
+                    inputGroup.innerHTML = `
+                        <input type="number" name="Beg[]" placeholder="Beginner (1-10)" min="1" max="10">
+                        <input type="number" name="Ju[]" placeholder="Junior (1-10)" min="1" max="10">
+                        <input type="number" name="Mid[]" placeholder="Mid (1-10)" min="1" max="10">
+                        <input type="number" name="Exper[]" placeholder="Experienced (1-10)" min="1" max="10">
+                        <input type="number" name="Expert[]" placeholder="Expert (1-10)" min="1" max="10">
+                    `;
+                    container.appendChild(inputGroup);
+                }
+            } else {
+                const inputGroup = document.getElementById(`input-group-${value}`);
+                if (inputGroup) {
+                    container.removeChild(inputGroup);
+                }
+            }
+        }
+
+        function filterSkillsByPosition() {
+            const selectedPositions = Array.from(document.querySelectorAll('#position-list input:checked')).map(checkbox => checkbox.value);
+            const skills = document.getElementById('skill-list').getElementsByTagName('label');
+
+            for (let i = 0; i < skills.length; i++) {
+                const skill = skills[i];
+                const job = skill.querySelector('input').dataset.job;
+                if (selectedPositions.length === 0 || selectedPositions.includes(job)) {
+                    skill.style.display = '';
+                } else {
+                    skill.style.display = 'none';
+                }
+            }
+        }
+
+        function filterCategoriesBySkill() {
+            const selectedSkills = Array.from(document.querySelectorAll('#skill-list input:checked')).map(checkbox => checkbox.value);
+            const categories = document.getElementById('category-list').getElementsByTagName('label');
+
+            for (let i = 0; i < categories.length; i++) {
+                const category = categories[i];
+                const cat = category.querySelector('input').dataset.cat;
+                if (selectedSkills.length === 0 || selectedSkills.includes(cat)) {
+                    category.style.display = '';
+                } else {
+                    category.style.display = 'none';
+                }
+            }
+        }
+
+        function initialize() {
+            // Pozisyon ve Yetkinlik filtreleme işlemlerini checkbox'ların değişim olaylarına bağlama
+            document.querySelectorAll('#position-list input').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    filterSkillsByPosition();
+                    openDropdownsBasedOnChecked();
+                });
+            });
+            document.querySelectorAll('#skill-list input').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    filterCategoriesBySkill();
+                    openDropdownsBasedOnChecked();
+                });
+            });
+            document.querySelectorAll('#category-list input').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    toggleInputGroup(this);
+                    openDropdownsBasedOnChecked();
+                });
+            });
+
+            // Sayfa yüklendiğinde açılır menüleri kontrol et ve filtrelemeleri uygula
+            openDropdownsBasedOnChecked();
+            filterSkillsByPosition();
+            filterCategoriesBySkill();
+
+            // Başlangıçta seçili kategorilere göre input-group'ları oluştur
+            document.querySelectorAll('#category-list input:checked').forEach(checkbox => {
+                toggleInputGroup(checkbox);
+            });
+        }
+
+        // Sayfa yüklendiğinde başlat
+        window.addEventListener('load', initialize);
+
+
+
+
+
+
+
+        document.querySelector('form').addEventListener('submit', function (event) {
+            // Formun gönderimini engelle
+            event.preventDefault();
+
+            // Formdaki seçili değerleri oku
+            const ISTUR = getSelectedValues('position-list');
+            const YETKINLIK = getSelectedValues('skill-list');
+            const ALTKATEGOR = getSelectedValues('category-list');
+
+            const begValues = getAllInputValues('Beg');
+            const juValues = getAllInputValues('Ju');
+            const midValues = getAllInputValues('Mid');
+            const experValues = getAllInputValues('Exper');
+            const expertValues = getAllInputValues('Expert');
+
+            // URL parametrelerini oluştur
+            const queryParams = new URLSearchParams({
+                ISTUR: ISTUR.join(','),
+                YETKINLIK: YETKINLIK.join(','),
+                ALTKATEGOR: ALTKATEGOR.join(','),
+                Beg: begValues.join(','),
+                Ju: juValues.join(','),
+                Mid: midValues.join(','),
+                Exper: experValues.join(','),
+                Expert: expertValues.join(',')
+            });
+
+            // URL'yi güncelle
+            const url = `SirketAdayGoruntulemeDetay?${queryParams.toString()}`;
+            window.location.href = url;
+        });
+
+        function getSelectedValues(listId) {
+            const checkboxes = document.querySelectorAll(`#${listId} input:checked`);
+            return Array.from(checkboxes).map(checkbox => checkbox.value);
+        }
+
+        function getAllInputValues(namePrefix) {
+            const inputs = document.querySelectorAll(`input[name^="${namePrefix}"]`);
+            return Array.from(inputs).map(input => input.value || 0);
+        }
+
+        function fillCheckboxListFromParams(paramName, listId) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const values = urlParams.get(paramName)?.split(',') || [];
+            const checkboxes = document.querySelectorAll(`#${listId} input`);
+
+            checkboxes.forEach(checkbox => {
+                if (values.includes(checkbox.value)) {
+                    checkbox.checked = true;
+                    toggleInputGroup(checkbox); // Gerekirse input grubunu da göster
+                }
+            });
+        }
+    </script>
+    
+</body>
+
+</html>

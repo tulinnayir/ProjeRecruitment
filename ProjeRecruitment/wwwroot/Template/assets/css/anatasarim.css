@@ -1,0 +1,622 @@
+﻿.tooltip {
+    z-index: 1151 !important;
+}
+
+@font-face {
+    font-family: Century;
+    src: url('../fontOther/SFProDisplay-Regular.ttf')
+}
+
+body {
+    font-family: Century;
+}
+
+/** switch button*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FF6373;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 0px;
+        bottom: 0px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #67BE02;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(16px);
+}
+
+.slider.round {
+    border-radius: 34px;
+    color: #ffffff00;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+/**********************/
+
+
+.btnsari {
+    border-radius: 12px;
+    border: 1px solid #FFB822;
+    color: #FFB822 !important;
+    font-weight: 500;
+}
+
+    .btnsari:hover {
+        background-color: #FFB822;
+        color: white !important;
+    }
+
+
+.btnyesil {
+    border-radius: 12px;
+    border: 1px solid #559978;
+    color: #559978 !important;
+    font-weight: 500;
+}
+
+.btnpembe {
+    border-radius: 12px;
+    border: 1px solid #c36b7f;
+    color: #c36b7f !important;
+    font-weight: 500;
+}
+
+.btnturuncu {
+    border-radius: 12px;
+    border: 1px solid #cf8c5c;
+    color: #cf8c5c !important;
+    font-weight: 500;
+}
+
+.btnkoyuturuncu {
+    border-radius: 12px;
+    border: 1px solid #FF5545;
+    color: #FF5545 !important;
+    font-weight: 500;
+}
+
+.btnmor {
+    border-radius: 12px;
+    border: 1px solid #D074C6;
+    color: #D074C6 !important;
+    font-weight: 500;
+}
+
+.btnmavi {
+    border-radius: 12px;
+    border: 1px solid #5A99FF;
+    color: #5A99FF !important;
+    font-weight: 500;
+}
+
+.btnyesil:hover {
+    background-color: #559978;
+    color: white !important;
+}
+
+.btnpembe:hover {
+    background-color: #c36b7f;
+    color: white !important;
+}
+
+.btnturuncu:hover {
+    background-color: #cf8c5c;
+    color: white !important;
+}
+
+.btnkoyuturuncu:hover {
+    background-color: #FF5545;
+    color: white !important;
+}
+
+.btnmor:hover {
+    background-color: #D074C6;
+    color: white !important;
+}
+
+.btnmavi:hover {
+    background-color: #5A99FF;
+    color: white !important;
+}
+
+.btnkoyuyesil {
+    background-color: white;
+    color: #67a746;
+    border-radius: 15px;
+    border: 1px solid #67a746;
+}
+
+    .btnkoyuyesil:hover {
+        background-color: #67a746;
+        color: white;
+    }
+
+.btnkoyumavi {
+    background-color: white;
+    color: #0b076d;
+    border-radius: 10px;
+    border: 1px solid #0b076d;
+}
+
+    .btnkoyumavi:hover {
+        background-color: #0b076d;
+        color: white;
+    }
+
+div#datatableCari_paginate {
+    margin-top: -30px;
+}
+
+div#datatableCari_length {
+    margin-top: -10px;
+}
+
+.input-group input {
+    margin-bottom: 1px !important;
+    margin-top: 1px !important;
+    margin-left: 1px !important;
+    margin-right: 1px !important;
+}
+
+.sicilInput input {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+input[type=date] {
+    padding: 3px !important;
+}
+
+textarea {
+    border: 1px solid #ced4da !important;
+    border-radius: 8px !important;
+}
+
+.dropAlanKontrolu {
+    cursor: pointer;
+}
+
+.sicilInput:focus, textarea:focus, select:focus {
+    border: 1px solid #dfc4c4 !important;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.intl-tel-input input {
+    color: #2f5275 !important;
+}
+
+
+.text-purple {
+    color: #828ED4 !important;
+}
+
+
+/*.bg-purple {
+    background-color: #828ED4 !important;
+}*/
+
+
+.bg-bordo {
+    background-color: #e77e7e !important;
+}
+
+.bg-yesil {
+    background-color: #559978 !important;
+}
+
+.bg-koyumavi {
+    background-color: #0e4cfd !important;
+}
+
+.bg-mavi {
+    background-color: #6e98ba !important;
+}
+
+.bg-turuncu {
+    background-color: #ff763b !important;
+}
+
+.bg-kahve {
+    background-color: #af6565 !important;
+}
+
+.bg-kirmizi {
+    background-color: #EE7C7B !important;
+}
+
+.bg-sari {
+    background-color: #ebbb55 !important;
+}
+
+.bg-gri {
+    background-color: #939dbb !important;
+}
+
+
+.bg-light-yesil {
+    background-color: #e6efea;
+}
+
+.bg-light-kirmizi {
+    background-color: #f6eceb;
+}
+
+.bg-light-sari {
+    background-color: #f7f0e6;
+}
+
+/***********************/
+.txt-bordo {
+    color: #e77e7e !important;
+}
+
+.txt-kirmizi {
+    color: #EE7C7B !important;
+}
+
+.txt-sari {
+    color: #ebbb55 !important;
+}
+
+.txt-yesil {
+    color: #559978 !important;
+}
+
+.txt-koyumavi {
+    color: #0e4cfd !important;
+}
+
+.txt-mavi {
+    color: #6e98ba !important;
+}
+
+.txt-turuncu {
+    color: #ff763b !important;
+}
+
+.txt-kahve {
+    color: #af6565 !important;
+}
+
+.txt-gri {
+    color: #939dbb !important;
+}
+
+.badge-blue {
+    background-color: #6e98ba;
+    box-shadow: unset !important
+}
+
+.badge-green {
+    background-color: #559978;
+}
+
+.badge-yellow {
+    background-color: #ebbb55;
+}
+
+.badge-red {
+    background-color: #e77e7e;
+}
+
+    .badge-blue span, .badge-green span, .badge-yellow span, .badge-red span {
+        color: #ffffff;
+    }
+
+/***Mobil nav*/
+/*=============== GOOGLE FONTS ===============*/
+:root {
+    --header-height: 3rem;
+    /*========== Colors ==========*/
+    --hue: 174;
+    --sat: 63%;
+    --container-color: #FFF;
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+        --h1-font-size: 2.25rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+    padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.section__height {
+    height: 100vh;
+}
+
+/*=============== LAYOUT ===============*/
+
+/*=============== HEADER ===============*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--container-color);
+    z-index: var(--z-fixed);
+    transition: .4s;
+}
+
+/*=============== NAV ===============*/
+header .nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 820px) {
+    header .nav__menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: var(--container-color);
+        box-shadow: 0 -1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+        width: 100%;
+        height: 4rem;
+        padding: 0 1rem;
+        display: grid;
+        align-content: center;
+        border-radius: 1.25rem 1.25rem 0 0;
+        transition: .4s;
+    }
+}
+
+header .nav__list,
+header .nav__link {
+    display: flex;
+}
+
+header .nav__link {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4px;
+}
+
+header .nav__list {
+    justify-content: space-around;
+}
+
+header .nav__name {
+    font-size: 10px;
+}
+
+.nav__item .icon {
+    font-size: 20px !important;
+    padding: 6px 10px 3px 10px;
+    border-radius: 10px;
+}
+
+.scroll-header {
+    box-shadow: 0 1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+/* Remove if you choose, the minimalist design */
+@media screen and (max-width: 320px) {
+    header .nav__name {
+        display: none;
+    }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+    header .nav__list {
+        justify-content: center;
+        column-gap: 3rem;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    body {
+        margin: 0;
+    }
+
+    .section {
+        padding: 7rem 0 2rem;
+    }
+
+  
+
+    .nav__img {
+        display: none;
+    }
+
+    .nav__icon {
+        display: none;
+    }
+
+    .nav__name {
+        font-size: var(--normal-font-size);
+        /* display: block; */ /* Minimalist design, visible labels */
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/***mobil nav biti�*****/
+
+
+/*iskontocar*/
+.iskontocard {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 10px 0px 10px 0px;
+}
+
+.stcCardSlider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 5px 0px 5px 0px;
+}
+
+    .iskontocard::-webkit-scrollbar, .stcCardSlider::-webkit-scrollbar {
+        height: 1px !important;
+    }
+
+
+.btniskonto, .iskblue {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    line-height: 0px !important;
+    height: 25px !important;
+    padding: 10px !important;
+}
+
+#ozeliskonto {
+    height: 25px !important;
+}
+
+.btniskonto.active, .iskblue.active {
+    background-color: #6e98ba00 !important;
+    color: #6e98ba !important;
+    border: 1px solid #6e98ba !important;
+}
+
+#ozeliskonto {
+    border: 1px solid #6e98ba !important;
+}
+
+.ui-widget {
+    font-family: 'Century' !important;
+    font-size: 1.1em !important;
+}
+
+.ui-menu .ui-menu-item {
+    margin: 5px !important;
+}
+
+.thead-mavi {
+    background-color: #dae2f5;
+    border-color: #dae2f5;
+}
+
+    .thead-mavi th {
+        color: #2243a5;
+    }
+.form-control {
+    height: calc(1.8rem + 2px)!important;
+}
+    /**********************/
+
+.page-title-box {
+    padding: 5px 0 !important;
+}
+
+
+.teksatirkisaltma {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+
+.ikisatirkisaltma {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.ucsatirkisaltma {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+.left-sidenav .main-icon-menu .nav-link:active, .left-sidenav .main-icon-menu .nav-link.active {
+    color: white!important;
+}

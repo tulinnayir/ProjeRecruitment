@@ -1,0 +1,302 @@
+﻿
+
+
+
+@{
+    ViewBag.Title = "UserProfil";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="~/assets/profil.css" rel="stylesheet" />
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Top navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="" target="_blank">User profile</a>
+                <!-- User -->
+                <ul class="navbar-nav align-items-center d-none d-md-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <input type="file" id="avatarInput" class="file-input" accept="image/*">
+                                </span>
+                                <div class="media-body ml-2 d-none d-lg-block">
+                                    <span class="mb-0 text-sm font-weight-bold" name="AD"> </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Header -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-color: #00ff26; background-size: cover; background-position: center top;">
+            <!-- Mask -->
+            <span class="mask bg-gradient-default opacity-8"></span>
+            <!-- Header container -->
+            <div class="container-fluid d-flex align-items-center">
+                <div class="row">
+                    <div class="col-lg-7 col-md-10">
+                        <h1 class="display-2 text-white">Hello <h1 class="display-2 text-white" name="AD">@ViewBag.UserName @ViewBag.UserSurname</h1></h1>
+                        <p class="text-white mt-0 mb-5"></p>
+                        <a href="#!" class="btn btn-info">Edit profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--7">
+            <div class="row">
+                <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 order-lg-2">
+                                <div class="card-profile-image">
+                                    <a href="#">
+                                        <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" class="rounded-circle">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                            <div class="d-flex justify-content-between">
+
+                                <a class="btn btn-sm btn-default float-right" href=""></a>
+                                <a class="btn btn-sm btn-info mr-4" href="@Url.Action("UserIlan", "User")">İlanları Görüntüle</a>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0 pt-md-4">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <h3 name="AD">
+                                     <span class="font-weight-light">, </span>
+                                </h3>
+                                <div class="h5 font-weight-300">
+                                    <i class="ni location_pin mr-2" name="IL"></i>
+                                </div>
+                                <div class="h5 mt-4">
+                                    <i class="ni business_briefcase-24 mr-2" name="POZISYON"></i>
+                                </div>
+                                <div>
+                                    <i class="ni education_hat mr-2" name=""></i>
+                                </div>
+                                <hr class="my-4">
+                                <p name=""></p>
+                                @* <a href="#">Show more</a> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 order-xl-1">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">My account</h3>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" asp-controller="User" asp-action="UserProfilUpdate">
+                                <h6 class="heading-small text-muted mb-4">User information</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="input-username" name="">İsim </label>
+                                                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="@ViewBag.UserName">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-email" name="">Soyisim</label>
+                                                <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="Soyisim" value="@ViewBag.UserSurname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="input-first-name" name="">Doğum Tarihi</label>
+                                                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="Doğum Tarihi" value="@ViewBag.UserDateOfBirth ">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="input-last-name" name="">Cinsiyet</label>
+                                                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Cinsiyet" name value="@ViewBag.UserGender ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <!-- Address -->
+                                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        
+                                    </div>
+                                    <div class="row">
+                                        @* <div class="col-lg-4">
+                                        <div class="form-group focused">
+                                        <label class="form-control-label" for="input-city" name="">İlçe</label>
+                                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="İlçe" value="Kadıköy">
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                        <div class="form-group focused">
+                                        <label class="form-control-label" for="input-country" name="">İl</label>
+                                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="İl" value="Istanbul">
+                                        </div>
+                                        </div> *@
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-postal-code" name="">Telefon</label>
+                                                <input type="tel" id="input-postal-code" class="form-control form-control-alternative" placeholder="Telefon" name="phone" value="@ViewBag.UserPhone ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <!-- Description -->
+                                <h6 class="heading-small text-muted mb-4">About me</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group focused">
+                                                <label>Özet Bilgi</label>
+                                                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="A few words about you ..." name="" value="@ViewBag.UserExplanation"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Skills Section -->
+                                    <h6 class="heading-small text-muted mb-4">Skills</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            @* <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="competency" name="">İş türü</label>
+                                                    <input type="text" id="competency" class="form-control form-control-alternative" placeholder="İş türü" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="subcategory" name="">Yetkinlik</label>
+                                                    <input type="text" id="subcategory" class="form-control form-control-alternative" placeholder="Yetkinlik" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="sub-level" name="">Alt kategori</label>
+                                                    <input type="text" id="sub-level" class="form-control form-control-alternative" placeholder="Alt Katagori" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="level" name="">Seviye</label>
+                                                    <input type="text" id="level" class="form-control form-control-alternative" placeholder="Seviye" value="">
+                                                </div>
+                                            </div> *@
+                                            <div class="col-lg-4">
+                                               
+                                            </div>
+                                            <ul id="skillList"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <!-- Education Section -->
+                                <h6 class="heading-small text-muted mb-4">EĞİTİM</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        
+                                       
+                                        <div class="col-lg-4">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="diplomaGrade" name="">DİPLOMA NOTU</label>
+                                                <input type="tel" id="input-postal-code" class="form-control form-control-alternative" placeholder="DİPLOMA NOTU" value="@ViewBag.UserNote ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="university" name="">Universite</label>
+                                                <input type="text" id="university" class="form-control form-control-alternative" placeholder="Universite" value="@ViewBag.UserSchoolName ">
+                                            </div>
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="row">
+                                        
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="department" name="">BÖLÜM</label>
+                                                <input type="text" id="department" class="form-control form-control-alternative" placeholder="BÖLÜM" value="@ViewBag.UserJobName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                       
+                                        <div class="col-lg-6 right-align d-flex justify-content-end">
+                                            <ul id="educationList"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Education Section End-->
+                                <!-- Optional -->
+                                <h6 class="heading-small text-muted mb-4">Ek Bilgi</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        
+                                       
+                                       
+                                    </div>
+                                    <div class="row">
+                                      
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 right-align d-flex justify-content-end">
+                                            <ul id="optionalList"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Optional Section End -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+    <div class="col-xl-6 m-auto text-center">
+    <div class="copyright">
+    <p>************************************************FOOTER********************************************</p>
+    </div>
+    </div>
+    </div>
+    </footer> *@
+    <script src="~/js/userprofil.js"></script>
+</body>
+</html>
